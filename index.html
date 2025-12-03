@@ -36,8 +36,8 @@
 <table id="sheet-data"></table>
 
 <script>
-// https://docs.google.com/spreadsheets/d/e/2PACX-1vQT4hQgwRvX304tKsEi6z8Sg_-zpjHgEk1cD_TLQk0IKeUouRzYMa_d4Vf9KLUZh0PJvtH2ovWpS5OW/pubhtml
-const sheetUrl = "https://docs.google.com/spreadsheets/d/e/XYZ123/pub?output=csv";
+// Вставь сюда ссылку на свою CSV-публикацию Google Sheet
+const sheetUrl = "https://docs.google.com/spreadsheets/d/e/ТВОЙ_ID/pub?output=csv";
 
 fetch(sheetUrl)
   .then(response => response.text())
@@ -45,7 +45,7 @@ fetch(sheetUrl)
     const rows = csvText.trim().split("\n").map(r => r.split(","));
     const table = document.getElementById("sheet-data");
 
-    // Добавляем заголовки
+    // Заголовки
     const headerRow = document.createElement("tr");
     rows[0].forEach(header => {
       const th = document.createElement("th");
@@ -54,7 +54,7 @@ fetch(sheetUrl)
     });
     table.appendChild(headerRow);
 
-    // Добавляем остальные строки
+    // Данные
     for (let i = 1; i < rows.length; i++) {
       const tr = document.createElement("tr");
       rows[i].forEach(cell => {
